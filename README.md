@@ -8,7 +8,6 @@ This guide will help you run a complete **ROS 2 Jazzy** environment using Docker
 
 Docker is a **containerization** platform that allows applications to run in isolated environments called **containers**.
 
-### 🔹 Key Concepts
 
 | Concept | Description |
 |--------|-------------|
@@ -17,7 +16,6 @@ Docker is a **containerization** platform that allows applications to run in iso
 | **Port Mapping** | Access apps inside the container from your host machine |
 
 
-### ⚙️ How It Works
 - Docker shares the host OS kernel → efficient performance
 - Each container has its own filesystem/environment → isolation
 - Allows Linux workloads like ROS 2 to run on Windows/macOS
