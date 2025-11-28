@@ -16,7 +16,6 @@ Docker is a **containerization** platform that allows applications to run in iso
 | **Docker Container** | A *running instance* of an image — lightweight, fast, isolated |
 | **Port Mapping** | Access apps inside the container from your host machine |
 
-Think of an image as a *recipe* 🧾, and a container as the *prepared dish* 🍽️ — many dishes can be made from the same recipe!
 
 ### ⚙️ How It Works
 - Docker shares the host OS kernel → efficient performance
