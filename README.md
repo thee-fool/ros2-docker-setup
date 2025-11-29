@@ -4,7 +4,7 @@
 This guide provides step-by-step instructions to install Docker and run a ROS container on different operating systems: **Windows**, **macOS**, and **Ubuntu**.  
 
 *Final Usage (once the whole setup is done) for Docker:* 
-
+![12secfinal (1)](https://github.com/user-attachments/assets/0893ef22-5425-4e2c-a8d7-759f8319c895)
 
 
 ---
@@ -41,12 +41,12 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 1. Open **Docker Desktop** after logging into your system.  
 2. In the bottom-right corner, open the **Docker Terminal**.
      
-   <img width="960" height="574" alt="1" src="https://github.com/user-attachments/assets/303908cb-6d15-41fa-97cf-e5eab3757f2e" />
+<img width="960" height="574" alt="1" src="https://github.com/user-attachments/assets/303908cb-6d15-41fa-97cf-e5eab3757f2e" />
 
    
 4. Run the following command to start the ROS Docker container:  
    ```bash
-   docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
+   docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m adtyp/winteros_docker:jazzy
    ```
 5. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
 
@@ -92,7 +92,7 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 
 3. Run the following command to start the ROS Docker container:  
    ```bash
-      docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
+      docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m adtyp/winteros_docker:jazzy
    ```
 4. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
 
@@ -120,6 +120,7 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 > sudo apt install gnome-terminal
 > ```
 
+
 ### Step 1: Download Docker Desktop  
 
 1. Download the `.deb` file for Ubuntu from the [Docker installation page](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).  
@@ -138,7 +139,7 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 1. Open the **Terminal**.  
 2. Run the following command to start the ROS Docker container:  
    ```bash
-      docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
+      docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m adtyp/winteros_docker:jazzy
    ```
 3. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
 
@@ -157,6 +158,12 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 
 > **Note**: you have to only do this once (pasting the commad in the terminal) from the next time just toggle the play button in the containers section of docker desktop has shown in the above pic 
 ---
+## ⚡ ALL SET
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9be17ef2-fbf3-4b5d-b540-536e87a4cf18" width="450">
+</p>
+
+
 
 
 
