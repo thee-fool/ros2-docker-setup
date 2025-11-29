@@ -5,7 +5,7 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 
 *Final Usage (once the whole setup is done) for Docker:* 
 
-<img src="misc/Untitled design-2.gif">
+
 
 ---
 ## Index
@@ -39,17 +39,20 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 ### Step 3: Running the ROS Container  
 
 1. Open **Docker Desktop** after logging into your system.  
-2. In the bottom-right corner, open the **Docker Terminal**.  
-   <img width="1372" alt="SCR-20241129-hdwg" src="https://github.com/user-attachments/assets/5f6891df-5274-4f3f-8b52-e6afcd59663d">
-3. Run the following command to start the ROS Docker container:  
+2. In the bottom-right corner, open the **Docker Terminal**.
+     
+   <img width="960" height="574" alt="1" src="https://github.com/user-attachments/assets/303908cb-6d15-41fa-97cf-e5eab3757f2e" />
+
+   
+4. Run the following command to start the ROS Docker container:  
    ```bash
    docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
    ```
-4. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
+5. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
 
 > **Note**: The first run may take some time to download necessary files and set up the environment.
 
-<img width="1372" alt="image" src="https://github.com/user-attachments/assets/0cac3b54-d77f-4c06-b1e7-a021ba9349b6">
+<img width="960" height="564" alt="2" src="https://github.com/user-attachments/assets/6fcfdc7d-d531-46fc-9d55-c6166867d8aa" />
 
 
 ### Step 4: Access ROS in the Browser  
@@ -58,7 +61,10 @@ This guide provides step-by-step instructions to install Docker and run a ROS co
 2. In the address bar, type `localhost:6080` and press Enter.  
 3. You should now see your ROS environment running inside Docker.
 4. To stop it , run `contol + C` in the terminal and to run the container again , just toggle the play button in the docker desktop , no need to folow the command line code again :))
-   <img width="1372" alt="image" src="https://github.com/user-attachments/assets/e68e95d1-2dc6-4fc3-807c-c8f91ab67086">
+   
+
+<img width="960" height="564" alt="3" src="https://github.com/user-attachments/assets/1b882d23-e12b-407e-9f7f-970df12029c5" />
+
 
 > **Note**: you have to only do this once (pasting the commad in the terminal) from the next time just toggle the play button in the containers section of docker desktop has shown in the above pic 
 
