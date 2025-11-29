@@ -1,72 +1,156 @@
-# ROS2 Jazzy on Docker 
 
-This guide will help you run a complete **ROS 2 Jazzy** environment using Docker with a web-based VNC interface — no native installation required. Everything runs inside a secure container environment.
+# Docker Installation and Running ROS Containers 
+
+This guide provides step-by-step instructions to install Docker and run a ROS container on different operating systems: **Windows**, **macOS**, and **Ubuntu**.  
+
+*Final Usage (once the whole setup is done) for Docker:* 
+
+<img src="misc/Untitled design-2.gif">
+
+---
+## Index
+- [Windows Installation](#for-windows)
+- [macOS Installation](#for-macos)
+- [Ubuntu Installation](#for-ubuntu)
+  
+---
+
+
+## For Windows  
+
+### Step 1: Install WSL (Windows Subsystem for Linux)  
+
+1. Open **PowerShell** as Administrator.  
+2. Run the following command:  
+   ```bash
+   wsl --install
+   ```
+3. Once the installation is complete, reboot your system.  
+
+> **Note**: If you already have WSL installed, you can skip this step and move to the next one.You can check if WSL is installed in your system by running `wsl --list --verbose` in the powershell. It will show the list of distros installed in WSL , if you have it already or else it will tell command not found. 
+
+### Step 2: Install Docker Desktop  
+
+1. Visit the [Docker installation page for Windows](https://docs.docker.com/desktop/setup/install/windows-install/).  
+2. Download the `.exe` file for Docker Desktop.  
+3. Run the installer and follow the on-screen instructions to complete the installation.  
+4. After installation, reboot your system.  
+
+### Step 3: Running the ROS Container  
+
+1. Open **Docker Desktop** after logging into your system.  
+2. In the bottom-right corner, open the **Docker Terminal**.  
+   <img width="1372" alt="SCR-20241129-hdwg" src="https://github.com/user-attachments/assets/5f6891df-5274-4f3f-8b52-e6afcd59663d">
+3. Run the following command to start the ROS Docker container:  
+   ```bash
+   docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
+   ```
+4. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
+
+> **Note**: The first run may take some time to download necessary files and set up the environment.
+
+<img width="1372" alt="image" src="https://github.com/user-attachments/assets/0cac3b54-d77f-4c06-b1e7-a021ba9349b6">
+
+
+### Step 4: Access ROS in the Browser  
+
+1. Open your web browser.  
+2. In the address bar, type `localhost:6080` and press Enter.  
+3. You should now see your ROS environment running inside Docker.
+4. To stop it , run `contol + C` in the terminal and to run the container again , just toggle the play button in the docker desktop , no need to folow the command line code again :))
+   <img width="1372" alt="image" src="https://github.com/user-attachments/assets/e68e95d1-2dc6-4fc3-807c-c8f91ab67086">
+
+> **Note**: you have to only do this once (pasting the commad in the terminal) from the next time just toggle the play button in the containers section of docker desktop has shown in the above pic 
+
 
 ---
 
-## 🐳 1️⃣ What is Docker?
+## For macOS  
 
-Docker is a **containerization** platform that allows applications to run in isolated environments called **containers**.
+### Step 1: Install XQuartz  
+
+1. Download and install XQuartz from [here](https://www.xquartz.org/releases/XQuartz-2.8.1.html).  
+2. Follow the on-screen instructions to complete the installation.  
+
+### Step 2: Install Docker Desktop  
+
+1. Visit the [Docker installation page for macOS](https://docs.docker.com/desktop/setup/install/mac-install/).  
+2. Download the `.dmg` file for Docker Desktop.  
+3. Run the `.dmg` file and follow the on-screen instructions.  
+
+### Step 3: Running the ROS Container  
+
+1. Open **Docker Desktop** after logging into your system.  
+2. In the bottom-right corner, open the **Docker Terminal**.  
+<img width="1372" alt="SCR-20241129-hdwg" src="https://github.com/user-attachments/assets/5f6891df-5274-4f3f-8b52-e6afcd59663d">
+
+3. Run the following command to start the ROS Docker container:  
+   ```bash
+      docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
+   ```
+4. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
+
+> **Note**: The first run may take some time to download necessary files and set up the environment.
+
+<img width="1372" alt="image" src="https://github.com/user-attachments/assets/0cac3b54-d77f-4c06-b1e7-a021ba9349b6">
 
 
-| Concept | Description |
-|--------|-------------|
-| **Docker Image** | A blueprint or template containing everything required to run (OS, dependencies, ROS 2, etc.) |
-| **Docker Container** | A *running instance* of an image — lightweight, fast, isolated |
-| **Port Mapping** | Access apps inside the container from your host machine |
 
+### Step 4: Access ROS in the Browser  
 
-- Docker shares the host OS kernel → efficient performance
-- Each container has its own filesystem/environment → isolation
-- Allows Linux workloads like ROS 2 to run on Windows/macOS
+1. Open your web browser.  
+2. In the address bar, type `localhost:6080` and press Enter.  
+3. You should now see your ROS environment running inside Docker.
+4. To stop it , run `contol + C` in the terminal and to run the container again , just toggle the play button in the docker desktop , no need to folow the command line code again :))
+   <img width="1372" alt="image" src="https://github.com/user-attachments/assets/e68e95d1-2dc6-4fc3-807c-c8f91ab67086">
 
+> **Note**: you have to only do this once (pasting the commad in the terminal) from the next time just toggle the play button in the containers section of docker desktop has shown in the above pic 
 ---
 
-## 💻 2️⃣ Install Docker Desktop
+## For Ubuntu  
 
-Download and install **Docker Desktop**:
+> **Note**: If you are using an environment other than GNOME, install GNOME Terminal using the following command:  
+> ```bash
+> sudo apt install gnome-terminal
+> ```
 
-| OS | Download Link |
-|----|---------------|
-| **Windows** | https://docs.docker.com/desktop/setup/install/window-install/ |
-| **macOS (Intel & Apple Silicon)** | https://docs.docker.com/desktop/setup/install/mac-install/ |
+### Step 1: Download Docker Desktop  
+
+1. Download the `.deb` file for Ubuntu from the [Docker installation page](https://docs.docker.com/desktop/setup/install/linux/ubuntu/).  
+
+### Step 2: Install Docker Desktop  
+
+1. Open the terminal and enter the following commands:  
+   ```bash
+   sudo apt-get update
+   sudo apt-get install ./docker-desktop-amd64.deb
+   ```
+2. Reboot your system.  
+
+### Step 3: Running the ROS Container  
+
+1. Open the **Terminal**.  
+2. Run the following command to start the ROS Docker container:  
+   ```bash
+      docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m saravan29/frosty_ros_docker:comb1
+   ```
+3. Wait for the container to initialize. This may take around 30 minutes for first-time users.  
+
+> **Note**: The first run may take some time to download necessary files and set up the environment.
+
+<img width="1372" alt="image" src="https://github.com/user-attachments/assets/0cac3b54-d77f-4c06-b1e7-a021ba9349b6">
 
 
-After installation, **open Docker Desktop** and make sure it shows:
+### Step 4: Access ROS in the Browser  
 
-> 🟢 Docker Engine: Running
+1. Open your web browser.  
+2. In the address bar, type `localhost:6080` and press Enter.  
+3. You should now see your ROS environment running inside Docker.
+4. To stop it , run `contol + C` in the terminal and to run the container again , just toggle the play button in the docker desktop , no need to folow the command line code again :))
+   <img width="1372" alt="image" src="https://github.com/user-attachments/assets/e68e95d1-2dc6-4fc3-807c-c8f91ab67086">
 
+> **Note**: you have to only do this once (pasting the commad in the terminal) from the next time just toggle the play button in the containers section of docker desktop has shown in the above pic 
 ---
 
-## 🧑‍💻 3️⃣ Open a Terminal
 
-- **Windows** → PowerShell / Command Prompt  
-- **macOS** → Terminal  
-- Or Docker Desktop → Open in Terminal
-
-Check if Docker works:
-
-```bash
-docker --version
-```
----
-
-## ▶️ 4️⃣ Run ROS 2 Jazzy Desktop Container
-
-Copy and run this command in the terminal:
-```bash
-docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m adtyp/ros2-desktop-vnc:jazzy
-```
-
-Keep the terminal open while the container is running.
-
----
-## 🌐 5️⃣ Access the ROS Desktop (noVNC)
-
-Open your browser and enter:
-
-> http://localhost:6080
-
-
-A full ROS 2 Jazzy Linux Desktop will appear inside your browser
 
